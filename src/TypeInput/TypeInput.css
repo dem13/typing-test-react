@@ -1,0 +1,13 @@
+.type-input {
+    padding: 20px;
+}
+
+.type-input input {
+    max-width: 500px;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #ffbd09;
+    border-radius: 3px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px #ccc;
+}
