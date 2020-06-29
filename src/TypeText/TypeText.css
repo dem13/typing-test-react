@@ -1,0 +1,22 @@
+.type-text {
+    max-width: 500px;
+    min-height: 200px;
+    margin: 16px auto;
+    padding: 10px;
+    background: #eee;
+    text-align: left;
+    border: 2px solid #ffbd09;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px #ccc;
+}
+
+.type-text.finished {
+    border-color: #8600ff;
+}
+
+.type-text .finished-text {
+    color: green;
+}
+
+.type-text .remaining-text {
+}

@@ -1,5 +1,5 @@
 .type-input {
-    padding: 20px;
+    padding: 10px;
 }
 
 .type-input input {
@@ -10,4 +10,8 @@
     border-radius: 3px;
     font-size: 16px;
     box-shadow: 0 2px 4px #ccc;
+}
+
+.type-input.invalid input {
+    color: #ff0000;
 }
