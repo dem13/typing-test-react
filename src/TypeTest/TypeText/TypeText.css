@@ -20,3 +20,15 @@
 
 .type-text .remaining-text {
 }
+
+.type-text .remaining-word {
+    color: #ff8000;
+}
+
+.type-text .current-word {
+    color: green;
+}
+
+.type-text .invalid-word {
+    color: red;
+}
