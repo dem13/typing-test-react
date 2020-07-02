@@ -8,7 +8,6 @@ class TypeTest extends Component {
   state = {
     started: false,
     currentWord: '',
-    text: 'this is text to type, enjoy!',
     remainingText: null,
     finishedText: '',
     invalidWord: false,
@@ -21,8 +20,13 @@ class TypeTest extends Component {
   constructor(props) {
     super(props);
 
-    this.state.remainingText = this.state.text;
+    this.state.remainingText = this.generateTextToType();
   }
+
+  generateTextToType = () => {
+    //TODO: Randomly generate text
+    return 'this is text to type, enjoy!';
+  };
 
   startGame = () => {
     this.setState({
@@ -40,7 +44,7 @@ class TypeTest extends Component {
     this.setState({
       started: false,
       currentWord: '',
-      remainingText: this.state.text,
+      remainingText: this.generateTextToType(),
       finishedText: '',
       invalidWord: false,
       time: 0,
