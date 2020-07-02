@@ -25,7 +25,7 @@ class TypeTest extends Component {
 
   generateTextToType = () => {
     //TODO: Randomly generate text
-    return 'this is text to type, enjoy!';
+    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum';
   };
 
   startGame = () => {
@@ -71,7 +71,7 @@ class TypeTest extends Component {
 
     let words = [];
 
-    if(this.state.remainingText !== '') {
+    if (this.state.remainingText !== '') {
       words = this.state.remainingText.split(' ');
     }
 
@@ -85,6 +85,7 @@ class TypeTest extends Component {
         words.splice(0, 1);
         remainingText = words.join(' ');
         currentWord = '';
+        result = this.computeResult(finishedText, this.state.time);
       }
     }
 
@@ -106,11 +107,17 @@ class TypeTest extends Component {
   render() {
     return (
       <div className="type-test">
-        <TypeText currentWord={this.state.currentWord} finishedText={this.state.finishedText} remainingText={this.state.remainingText}/>
-        {this.state.remainingText.length === 0 ? <div>{(this.state.result / 5).toFixed(2)}WPM</div> : null}
-        <div className="timer">
-          {(this.state.time / 100).toFixed(1)}
+        <div className="info-wrapper">
+          <div className="info">
+            {this.state.time === 0 ? "Start typing the text below" : (this.state.time / 100).toFixed(1) + " seconds"}
+          </div>
+          <div className="info">
+            {this.state.result !== null ? (this.state.result / 5).toFixed(0) : "Your "}WPM
+          </div>
         </div>
+
+        <TypeText currentWord={this.state.currentWord} finishedText={this.state.finishedText}
+                  remainingText={this.state.remainingText}/>
 
         <TypeInput
           invalid={this.state.invalidWord}
@@ -118,7 +125,7 @@ class TypeTest extends Component {
           currentWord={this.state.currentWord}/>
 
         <div className="control">
-          <button onClick={this.restartClickHandler}>Restart</button>
+          <button className="btn" onClick={this.restartClickHandler}>Restart</button>
         </div>
       </div>
     )

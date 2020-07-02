@@ -10,7 +10,7 @@ function typeInput(props) {
 
   return (
     <div className={classes.join(' ')}>
-      <input onChange={props.changed} value={props.currentWord} type="text"/>
+      <input onChange={props.changed} value={props.currentWord} type="text" autoFocus={true} />
     </div>
   );
 }
