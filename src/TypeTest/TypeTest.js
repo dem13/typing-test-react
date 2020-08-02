@@ -20,6 +20,8 @@ class TypeTest extends Component {
   constructor(props) {
     super(props);
 
+    this.typeInputRef = React.createRef();
+
     this.state.remainingText = this.generateTextToType();
   }
 
@@ -51,6 +53,8 @@ class TypeTest extends Component {
       stopwatchInterval: null,
       result: null
     });
+
+    this.typeInputRef.current.focus();
   };
 
   computeResult(text, time) {
@@ -122,7 +126,8 @@ class TypeTest extends Component {
         <TypeInput
           invalid={this.state.invalidWord}
           changed={this.currentWordChangedHandler}
-          currentWord={this.state.currentWord}/>
+          currentWord={this.state.currentWord}
+          ref={this.typeInputRef}/>
 
         <div className="control">
           <button className="btn" onClick={this.restartClickHandler}>Restart</button>

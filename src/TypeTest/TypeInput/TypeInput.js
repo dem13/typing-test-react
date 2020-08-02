@@ -1,7 +1,7 @@
 import React from "react";
 import './TypeInput.css';
 
-function typeInput(props) {
+function typeInput(props, ref) {
   let classes = ['type-input'];
 
   if(props.invalid) {
@@ -10,9 +10,9 @@ function typeInput(props) {
 
   return (
     <div className={classes.join(' ')}>
-      <input onChange={props.changed} value={props.currentWord} type="text" autoFocus={true} />
+      <input ref={ref} onChange={props.changed} value={props.currentWord} type="text" autoFocus={true} />
     </div>
   );
 }
 
-export default typeInput;
+export default React.forwardRef(typeInput);
